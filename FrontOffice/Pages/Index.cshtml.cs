@@ -20,11 +20,11 @@ namespace FrontOffice.Pages
 
         public async Task OnGet()
         {
-            //await _dbContext.BaseCategory.AddAsync(new BaseCategory
-            //{
-            //    Name = "Test",
-            //    Categories = new List<Category>()
-            //});
+            await _dbContext.BaseCategory.AddAsync(new BaseCategory
+            {
+                Name = "Test",
+                Categories = new List<Category>()
+            });
         }
     }
 }
