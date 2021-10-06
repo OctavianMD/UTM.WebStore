@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontOffice", "FrontOffice\FrontOffice.csproj", "{34710825-352A-406A-8473-27CEB007EDDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{8067EA1C-31E1-4AE2-8C95-712195AD77A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34710825-352A-406A-8473-27CEB007EDDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34710825-352A-406A-8473-27CEB007EDDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34710825-352A-406A-8473-27CEB007EDDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34710825-352A-406A-8473-27CEB007EDDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8067EA1C-31E1-4AE2-8C95-712195AD77A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8067EA1C-31E1-4AE2-8C95-712195AD77A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8067EA1C-31E1-4AE2-8C95-712195AD77A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8067EA1C-31E1-4AE2-8C95-712195AD77A8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {39FB007C-0CC8-4C05-9B60-10393B3731B2}
+	EndGlobalSection
+EndGlobal
