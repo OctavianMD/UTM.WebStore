@@ -14,6 +14,7 @@ namespace FrontOffice.Pages
 
         public void OnGet()
         {
+
         }
     }
 }
