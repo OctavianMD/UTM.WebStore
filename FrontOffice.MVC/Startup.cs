@@ -1,3 +1,5 @@
+using System.Net.Http;
+using CommonLayer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -7,6 +9,8 @@ using DataLayer;
 using DataLayer.Repositories;
 using DataLayer.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using ServiceLayer.Interfaces;
+using ServiceLayer.Services;
 
 namespace FrontOffice.MVC
 {
@@ -27,6 +31,16 @@ namespace FrontOffice.MVC
                 {
                     sqlOptions.EnableRetryOnFailure();
                 }));
+            services.AddTransient<IFetchDataHttpClient, FetchDataHttpClient>();
+            services.AddTransient<IFetchDataService, FetchDataService>();
+            services.AddHttpClient(Constants.FetchDataHttpClientName).ConfigurePrimaryHttpMessageHandler(() =>
+            {
+                var handler = new HttpClientHandler();
+                //handler.ClientCertificates.Add(CertificateHelper.LoadPrivateCertificate(
+                //    Configuration.GetValue<string>("PhysicalPersonCertificatePath"),
+                //    Configuration.GetValue<string>("PhysicalPersonCertificatePassword")));
+                return handler;
+            });
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddControllersWithViews();
         }

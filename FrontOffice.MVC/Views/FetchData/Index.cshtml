@@ -1,0 +1,30 @@
+﻿@model FetchDataModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-4">
+            <form asp-controller="FetchData" asp-action="FetchBaseCategories" method="post">
+                <button class="btn btn-primary m-2">Fetch Base Categories</button>
+            </form>
+        </div>
+
+        <div class="col-sm-12 col-md-4">
+            <form asp-controller="FetchData" asp-action="FetchCategories" method="post">
+                <button class="btn btn-primary m-2">Fetch Categories</button>
+            </form>
+        </div>
+
+        <div class="col-sm-12 col-md-4">
+            <form asp-controller="FetchData" asp-action="FetchProducts" method="post">
+                <button class="btn btn-primary m-2">Fetch Products</button>
+            </form>
+        </div>
+    </div>
+
+    @if(Model.IsFetched)
+    {
+        <div class="row">
+            <p class="col-sm-12 alert alert-success">@Model.Message</p>
+        </div>
+    }
+</div>
