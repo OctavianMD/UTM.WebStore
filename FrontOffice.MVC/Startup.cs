@@ -1,4 +1,5 @@
 using System.Net.Http;
+using BusinessLayer.Helpers;
 using CommonLayer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,13 +27,19 @@ namespace FrontOffice.MVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IFetchDataHttpClient, FetchDataHttpClient>();
+            services.AddScoped<IFetchDataService, FetchDataService>();
+            services.AddScoped<BaseCategoryHelper>();
+            services.AddScoped<CategoryHelper>();
+            services.AddScoped<ProductHelper>();
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            
             services.AddDbContextPool<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("UtmWebStore"), sqlOptions =>
                 {
                     sqlOptions.EnableRetryOnFailure();
                 }));
-            services.AddTransient<IFetchDataHttpClient, FetchDataHttpClient>();
-            services.AddTransient<IFetchDataService, FetchDataService>();
+            
             services.AddHttpClient(Constants.FetchDataHttpClientName).ConfigurePrimaryHttpMessageHandler(() =>
             {
                 var handler = new HttpClientHandler();
@@ -41,7 +48,7 @@ namespace FrontOffice.MVC
                 //    Configuration.GetValue<string>("PhysicalPersonCertificatePassword")));
                 return handler;
             });
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            
             services.AddControllersWithViews();
         }
 

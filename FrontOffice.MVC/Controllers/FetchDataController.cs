@@ -33,22 +33,22 @@ namespace FrontOffice.MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> FetchCategories()
         {
-            var result = await _fetchDataService.FetchBaseCategories();
+            var result = await _fetchDataService.FetchCategories();
             return View("Index", new FetchDataModel
             {
                 IsFetched = true,
-                Message = $"Successfully fetched {result} base categories"
+                Message = $"Successfully fetched {result} categories"
             });
         }
 
         [HttpPost]
         public async Task<IActionResult> FetchProducts()
         {
-            var result = await _fetchDataService.FetchBaseCategories();
+            var result = await _fetchDataService.FetchProducts();
             return View("Index", new FetchDataModel
             {
                 IsFetched = true,
-                Message = $"Successfully fetched {result} base categories"
+                Message = $"Successfully fetched {result} products"
             });
         }
     }
