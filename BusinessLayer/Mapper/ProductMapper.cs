@@ -12,8 +12,7 @@ namespace BusinessLayer.Mapper
                 Name = product.Name,
                 Brand = product.Brand,
                 Description = product.Description ?? "",
-                ImageBytes = product.ImageAsBase64.ToBytes(),
-                Category = new Category()
+                ImageBytes = product.ImageAsBase64.ToBytes()
             };
         }
     }

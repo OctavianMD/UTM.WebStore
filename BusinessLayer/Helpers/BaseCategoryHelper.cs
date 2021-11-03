@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using BusinessLayer.Mapper;
 using CommonLayer.ApiModels;
+using CommonLayer.ViewModels;
 using DataLayer.Entities;
 using DataLayer.Repositories.Interfaces;
 using Newtonsoft.Json;
@@ -39,6 +40,12 @@ namespace BusinessLayer.Helpers
             }
 
             return counter;
+        }
+
+        public async Task<List<BaseCategoryViewModel>> GetAll()
+        {
+            var entities = await _baseCategoryRepository.GetAll(x => true);
+            return entities.ToViewModel();
         }
     }
 }

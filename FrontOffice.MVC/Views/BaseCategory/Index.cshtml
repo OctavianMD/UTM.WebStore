@@ -1,0 +1,30 @@
+﻿@using CommonLayer.ViewModels
+@model List<BaseCategoryViewModel>
+
+<div class="container">
+    <h2>Base categories</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>@nameof(BaseCategoryViewModel.Name)</th>
+        </tr>
+        </thead>
+        <tbody>
+        @if (Model == null || Model.Count < 1)
+        {
+            <tr>
+                <td>No data</td>
+            </tr>
+        }
+        else
+        {
+            foreach (var category in Model)
+            {
+                <tr>
+                    <td>@category.Name</td>
+                </tr>
+            }
+        }
+        </tbody>
+    </table>
+</div>

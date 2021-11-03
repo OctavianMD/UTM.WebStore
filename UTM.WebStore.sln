@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "BusinessLa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExternalProject", "ExternalProject\ExternalProject.csproj", "{355511CA-F707-48EA-9ABC-23E57B184FA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontOffice.MVC", "FrontOffice.MVC\FrontOffice.MVC.csproj", "{FA288EF5-6CF7-43DD-9E38-D37FAE53FF86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontOffice.MVC", "FrontOffice.MVC\FrontOffice.MVC.csproj", "{FA288EF5-6CF7-43DD-9E38-D37FAE53FF86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

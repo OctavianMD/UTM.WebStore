@@ -6,7 +6,7 @@ namespace BusinessLayer.Mapper
     {
         public static byte[] ToBytes(this string base64)
         {
-            throw new NotImplementedException();
+            return Convert.FromBase64String(base64);
         }
     }
 }

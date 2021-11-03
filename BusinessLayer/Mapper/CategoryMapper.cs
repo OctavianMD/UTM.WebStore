@@ -10,7 +10,6 @@ namespace BusinessLayer.Mapper
             return new Category
             {
                 Name = category.Name,
-                BaseCategory = new BaseCategory()
             };
         }
     }
