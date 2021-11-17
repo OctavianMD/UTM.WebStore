@@ -1,22 +1,22 @@
-﻿using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using CommonLayer.ViewModels;
-using Microsoft.AspNetCore.Mvc;
 using ServiceLayer.Interfaces;
 
 namespace FrontOffice.MVC.Controllers
 {
-    public class BaseCategoryController : Controller
+    public class CategoryController : Controller
     {
         private readonly ICategoryService _categoryService;
 
-        public BaseCategoryController(ICategoryService categoryService)
+        public CategoryController(ICategoryService categoryService)
         {
             _categoryService = categoryService;
         }
 
         public async Task<IActionResult> Index()
         {
-            return View(await _categoryService.GetAllBaseCategories());
+            return View(await _categoryService.GetAllCategories());
         }
 
         [HttpGet]
@@ -24,31 +24,31 @@ namespace FrontOffice.MVC.Controllers
         {
             return View();
         }
-        
+
         [HttpPost]
-        public async Task<IActionResult> Add(BaseCategoryViewModel model)
+        public async Task<IActionResult> Add(CategoryViewModel model)
         {
-            await _categoryService.AddBaseCategory(model);
+            await _categoryService.AddCategory(model);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            return View(await _categoryService.GetBaseCategory(id));
+            return View(await _categoryService.GetCategory(id));
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(BaseCategoryViewModel model)
+        public async Task<IActionResult> Edit(CategoryViewModel model)
         {
-            await _categoryService.EditBaseCategory(model);
+            await _categoryService.EditCategory(model);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
-            await _categoryService.DeleteBaseCategory(id);
+            await _categoryService.DeleteCategory(id);
             return RedirectToAction("Index");
         }
     }

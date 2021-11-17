@@ -28,3 +28,18 @@
         </div>
     }
 </div>
+
+@section Scripts
+{
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const menuItems = document.getElementById('header-menu').children;
+            for (const item in menuItems) {
+                console.log(menuItems[item]);
+                if (menuItems[item].children != undefined)
+                    menuItems[item].classList.remove('active');
+            }
+            document.getElementById('nav-item-api').classList.add('active');
+        });
+    </script>
+}

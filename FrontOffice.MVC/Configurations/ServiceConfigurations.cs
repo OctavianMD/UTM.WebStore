@@ -57,6 +57,7 @@ namespace FrontOffice.MVC.Configurations
 
             services.AddScoped<IFetchDataHttpClient, FetchDataHttpClient>();
             services.AddScoped<IFetchDataService, FetchDataService>();
+            services.AddScoped<ICategoryService, CategoryService>();
 
             #endregion
 

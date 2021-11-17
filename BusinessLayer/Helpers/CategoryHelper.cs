@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using BusinessLayer.Mapper;
 using CommonLayer.ApiModels;
+using CommonLayer.ViewModels;
 using DataLayer.Entities;
 using DataLayer.Repositories.Interfaces;
 using Newtonsoft.Json;
@@ -39,6 +40,43 @@ namespace BusinessLayer.Helpers
             }
 
             return counter;
+        }
+
+        public async Task<List<CategoryViewModel>> GetAll()
+        {
+            var entities = await _categoryRepository.GetAll(x => true);
+            return entities.ToViewModel();
+        }
+
+        public async Task<CategoryViewModel> Get(int id)
+        {
+            var entity = await _categoryRepository.Get(x => x.Id == id);
+            return entity.ToViewModel();
+        }
+
+        public async Task<CategoryViewModel> Create(CategoryViewModel model)
+        {
+            var entity = await _categoryRepository.Add(model.ToEntity());
+            return entity.ToViewModel();
+        }
+
+        public async Task<CategoryViewModel> Update(CategoryViewModel model)
+        {
+            if (await _categoryRepository.Any(x => x.Id == model.Id))
+            {
+                await _categoryRepository.Update(model.ToEntity());
+            }
+
+            return null;
+        }
+
+        public async Task Remove(int id)
+        {
+            var entity = await _categoryRepository.Get(x => x.Id == id);
+            if (entity != null)
+            {
+                await _categoryRepository.Remove(entity);
+            }
         }
     }
 }

@@ -47,5 +47,36 @@ namespace BusinessLayer.Helpers
             var entities = await _baseCategoryRepository.GetAll(x => true);
             return entities.ToViewModel();
         }
+
+        public async Task<BaseCategoryViewModel> Get(int id)
+        {
+            var entity = await _baseCategoryRepository.Get(x => x.Id == id);
+            return entity.ToViewModel();
+        }
+
+        public async Task<BaseCategoryViewModel> Create(BaseCategoryViewModel model)
+        {
+            var entity = await _baseCategoryRepository.Add(model.ToEntity());
+            return entity.ToViewModel();
+        }
+
+        public async Task<BaseCategoryViewModel> Update(BaseCategoryViewModel model)
+        {
+            if (await _baseCategoryRepository.Any(x => x.Id == model.Id))
+            {
+                await _baseCategoryRepository.Update(model.ToEntity());
+            }
+
+            return null;
+        }
+
+        public async Task Remove(int id)
+        {
+            var entity = await _baseCategoryRepository.Get(x=>x.Id == id);
+            if (entity != null)
+            {
+                await _baseCategoryRepository.Remove(entity);
+            }
+        }
     }
 }

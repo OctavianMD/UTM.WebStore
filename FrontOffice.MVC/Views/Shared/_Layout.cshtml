@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - FrontOffice.MVC</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
 </head>
 <body>
     <header>
@@ -17,14 +18,17 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+                    <ul class="navbar-nav flex-grow-1" id="header-menu">
+                        <li class="nav-item active" id="nav-item-home">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" id="nav-item-category">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">Categories</a>
+                        </li>
+                        <li class="nav-item" id="nav-item-base-category">
                             <a class="nav-link text-dark" asp-area="" asp-controller="BaseCategory" asp-action="Index">Base Categories</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" id="nav-item-api">
                             <a class="nav-link text-dark" asp-area="" asp-controller="FetchData" asp-action="Index">Fetch API Data</a>
                         </li>
                     </ul>

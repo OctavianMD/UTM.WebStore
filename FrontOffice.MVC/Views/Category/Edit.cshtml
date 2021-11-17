@@ -1,0 +1,16 @@
+﻿@model CommonLayer.ViewModels.CategoryViewModel
+
+<div class="container">
+    <div class="col-sm-6">
+        <form method="post" asp-action="Edit">
+            @Html.HiddenFor(x=>x.Id)
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" type="text" class="form-control" value="@Model.Name">
+            </div>
+            <div>
+                <button class="btn btn-success" type="submit">Update category</button>
+            </div>
+        </form>
+    </div>
+</div>

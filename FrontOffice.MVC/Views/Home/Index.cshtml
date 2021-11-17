@@ -6,3 +6,18 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+@section Scripts
+{
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const menuItems = document.getElementById('header-menu').children;
+            for (const item in menuItems) {
+                console.log(menuItems[item]);
+                if (menuItems[item].children != undefined)
+                    menuItems[item].classList.remove('active');
+            }
+            document.getElementById('nav-item-home').classList.add('active');
+        });
+    </script>
+}

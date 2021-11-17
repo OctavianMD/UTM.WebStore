@@ -25,5 +25,30 @@ namespace BusinessLayer.Mapper
                 Name = x.Name
             }).ToList();
         }
+
+        public static BaseCategory ToEntity(this BaseCategoryViewModel category)
+        {
+            var entity = new BaseCategory
+            {
+                Name = category.Name,
+                Categories = new List<Category>()
+            };
+
+            if (category.Id > 0)
+            {
+                entity.Id = category.Id;
+            }
+
+            return entity;
+        }
+
+        public static BaseCategoryViewModel ToViewModel(this BaseCategory category)
+        {
+            return new BaseCategoryViewModel
+            {
+                Id = category.Id,
+                Name = category.Name
+            };
+        }
     }
 }

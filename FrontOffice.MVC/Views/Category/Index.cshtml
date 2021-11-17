@@ -1,8 +1,8 @@
 ﻿@using CommonLayer.ViewModels
-@model List<BaseCategoryViewModel>
+@model List<CategoryViewModel>
 
 <div class="container">
-    <h2>Base categories</h2>
+    <h2>Categories</h2>
     <div class="row mb-2">
         <div class="col-sm-4 text-center">
             <a class="btn btn-primary btn-block" href="@Url.Action("Add")">Add new Category</a>
@@ -11,7 +11,7 @@
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th>@nameof(BaseCategoryViewModel.Name)</th>
+            <th>@nameof(CategoryViewModel.Name)</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -37,7 +37,6 @@
         </tbody>
     </table>
 </div>
-
 @section Scripts
 {
     <script>
@@ -46,9 +45,9 @@
             for (const item in menuItems) {
                 console.log(menuItems[item]);
                 if (menuItems[item].children != undefined)
-                    menuItems[item].classList.remove('active');
+                menuItems[item].classList.remove('active');
             }
-            document.getElementById('nav-item-base-category').classList.add('active');
+            document.getElementById('nav-item-category').classList.add('active');
         });
     </script>
 }
